@@ -21,6 +21,8 @@ sudo docker pull onosproject/onos
 ### Connectivity test with containrs on OVS
 
 ### ONOS cluster
+based on [Running the published Docker ONOS images](https://wiki.onosproject.org/display/ONOS/Running+the+published+Docker+ONOS+images)
+
 1. Run your docker image
 
 ```
