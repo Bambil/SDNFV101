@@ -15,7 +15,7 @@ sudo apt install ovn-common
 3. Install [ONOS](http://onosproject.org/) on each VM
 
 ```sh
-sudo docker pull sdnhub/onos
+sudo docker pull onosproject/onos
 ```
 
 ### Connectivity test with containrs on OVS
