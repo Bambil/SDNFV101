@@ -33,3 +33,11 @@ $ sudo docker run  -t -d --name onos2 onosproject/onos
 $ sudo docker run  -t -d --name onos3 onosproject/onos
 <cid>
 ```
+
+2. Cluster-ize your instances
+
+```sh
+wget https://raw.githubusercontent.com/opennetworkinglab/onos/master/tools/package/bin/onos-form-cluster
+chmod u+x onos-form-cluster
+./onos-form-cluster -u karaf -p karaf `docker-ip onos1` `docker-ip onos2` `docker-ip onos3`
+```
