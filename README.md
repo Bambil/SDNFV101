@@ -37,6 +37,7 @@ $ sudo docker run  -t -d --name onos3 onosproject/onos
 2. Cluster-ize your instances
 
 ```sh
+# Forms ONOS cluster using REST API of each separate instance.
 wget https://raw.githubusercontent.com/opennetworkinglab/onos/master/tools/package/bin/onos-form-cluster
 
 chmod u+x onos-form-cluster
