@@ -38,6 +38,19 @@ $ sudo docker run  -t -d --name onos3 onosproject/onos
 
 ```sh
 wget https://raw.githubusercontent.com/opennetworkinglab/onos/master/tools/package/bin/onos-form-cluster
+
 chmod u+x onos-form-cluster
+
 ./onos-form-cluster -u karaf -p karaf `docker-ip onos1` `docker-ip onos2` `docker-ip onos3`
 ```
+
+3. Connect to your ONOS !
+
+```sh
+ssh -p 8101 karaf@`docekr-ip onso3`
+```
+
+| Protocol | Port |
+|:--------:| ----:|
+| SSH      | 8101 |
+| HTTP     | 8181 |
