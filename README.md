@@ -19,3 +19,15 @@ sudo docker pull onosproject/onos
 ```
 
 ### Connectivity test with containrs on OVS
+
+### ONOS cluster
+1. Run your docker image
+
+```
+$ sudo docker run  -t -d --name onos1 onosproject/onos
+<cid>
+$ sudo docker run  -t -d --name onos2 onosproject/onos
+<cid>
+$ sudo docker run  -t -d --name onos3 onosproject/onos
+<cid>
+```
