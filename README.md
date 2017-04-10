@@ -47,6 +47,21 @@ sudo ovs-docker add-port ovs-br1 eth1 container1 --ipaddress=173.16.1.2/24
 sudo ovs-docker add-port ovs-br1 eth1 container2 --ipaddress=173.16.1.3/24
 ```
 
+### Let's build tunnels between OVSs
+based on [Configuring VXLAN and GRE Tunnels on OpenvSwitch](http://networkstatic.net/configuring-vxlan-and-gre-tunnels-on-openvswitch/)
+
+1. Create bridge interface
+
+```sh
+sudo ovs-vsctl add-br ovs-br1
+```
+
+2. Create tunnels :joy:
+
+```sh
+sudo ovs-vsctl add-port ovs-br1 vx1 -- set interface vx1 type=vxlan options:remote_ip=?
+```
+
 ### ONOS cluster
 based on [Running the published Docker ONOS images](https://wiki.onosproject.org/display/ONOS/Running+the+published+Docker+ONOS+images).
 
