@@ -21,6 +21,32 @@ sudo docker pull onosproject/onos
 ### Connectivity test with containrs on OVS
 based on [Open Virtual Networking With Docker](http://docs.openvswitch.org/en/latest/howto/docker/).
 
+1. Create bridge interface
+
+```sh
+sudo ovs-vsctl add-br ovs-br1
+```
+
+2. Provide ip address to host ovs-br1 bridge
+
+```sh
+sudo ifconfig ovs-br1 173.16.1.1 netmask 255.255.255.0 up
+```
+
+3. Create docker instances
+
+```sh
+sudo docker run -t -i --name container1 ubuntu /bin/bash
+sudo docker run -t -i --name container2 ubuntu /bin/bash
+```
+
+4. Connect them together and VSwitch
+
+```sh
+sudo ovs-docker add-port ovs-br1 eth1 container1 --ipaddress=173.16.1.2/24
+sudo ovs-docker add-port ovs-br1 eth1 container2 --ipaddress=173.16.1.3/24
+```
+
 ### ONOS cluster
 based on [Running the published Docker ONOS images](https://wiki.onosproject.org/display/ONOS/Running+the+published+Docker+ONOS+images).
 
