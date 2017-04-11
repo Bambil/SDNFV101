@@ -1,0 +1,29 @@
+---
+- hosts: all
+  tasks:
+    - name: Install prerequisites
+      apt: name={{item}} state=installed update_cache=yes
+      with_items:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - software-properties-common
+    - name: Add docker gpg
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add docker repository
+      apt_repository:
+        repo:  deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+        state: present
+
+    - name: Update dependencies and install docker
+      action: >
+        {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
+      with_items:
+        - docker-ce
+    - name: Install ovs
+      apt: name=openvswitch-common state=installed
+
+
