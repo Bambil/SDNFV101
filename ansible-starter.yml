@@ -39,7 +39,7 @@
         name: myportainer
         state: started
         published_ports:
-          - "9000:9000"
+          - "8000:8000"
         image: portainer/portainer
 
 
