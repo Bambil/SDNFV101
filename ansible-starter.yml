@@ -23,7 +23,7 @@
         {{ ansible_pkg_mgr }} name={{ item }} state=present update_cache=yes
       with_items:
         - docker-ce
-    - name: Install python3
+    - name: Install python
       apt: name={{item}} state=installed update_cache=yes
       with_items:
         - python
