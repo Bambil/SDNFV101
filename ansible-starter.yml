@@ -34,5 +34,11 @@
         name: docker-py
     - name: Install ovs
       apt: name=openvswitch-common state=installed
+    - name: Deploy some example container
+      docker_container:
+        name: myubuntu
+        state: started
+        image: ubuntu
+
 
 
