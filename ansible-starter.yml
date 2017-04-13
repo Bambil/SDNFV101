@@ -36,9 +36,11 @@
       apt: name=openvswitch-common state=installed
     - name: Deploy some example container
       docker_container:
-        name: myubuntu
+        name: myportainer
         state: started
-        image: ubuntu
+        published_ports:
+          - "9000:9000"
+        image: portainer/portainer
 
 
 
