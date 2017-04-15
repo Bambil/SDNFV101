@@ -116,3 +116,8 @@ sudo docker run -ti --rm --name=c3 --network=bridge-2 ubuntu
 ```
 
 3. Create middlebox container
+
+```sh
+sudo docker build --no-cache -t middlebox containers/middlebox
+sudo docker run -ti --rm --name=mc middlebox eth0
+```
