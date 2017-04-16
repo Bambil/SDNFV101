@@ -97,3 +97,27 @@ ssh -p 8101 karaf@`docekr-ip onso3`
 |:--------:| ----:|
 | SSH      | 8101 |
 | HTTP     | 8181 |
+
+### Docker Chaining
+
+We want to create 3 containers that thier network chains together.
+
+1. Create docker network if necessary
+
+```sh
+sudo docker netowrk create --driver=bridge bridge-name
+```
+
+2. Create a normal container in each subnet
+
+```sh
+sudo docker run -ti --rm --name=c1 ubuntu
+sudo docker run -ti --rm --name=c3 --network=bridge-2 ubuntu
+```
+
+3. Create middlebox container
+
+```sh
+sudo docker build --no-cache -t middlebox containers/middlebox
+sudo docker run -ti --rm --name=mc middlebox eth0
+```
