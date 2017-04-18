@@ -18,7 +18,7 @@ sudo apt install ovn-common
 sudo docker pull onosproject/onos
 ```
 
-### Connectivity test with containrs on OVS
+### Connectivity test with containrs on OVS + OpenFlow
 based on [Open Virtual Networking With Docker](http://docs.openvswitch.org/en/latest/howto/docker/).
 
 1. Create bridge interface
@@ -36,8 +36,8 @@ sudo ifconfig ovs-br1 173.16.1.1 netmask 255.255.255.0 up
 3. Create docker instances
 
 ```sh
-sudo docker run -t -i --name container1 ubuntu /bin/bash
-sudo docker run -t -i --name container2 ubuntu /bin/bash
+sudo docker run -t -i --name container1 1995parham/ubuntu-network /bin/bash
+sudo docker run -t -i --name container2 1995parham/ubuntu-network /bin/bash
 ```
 
 4. Connect them together and VSwitch
@@ -45,6 +45,12 @@ sudo docker run -t -i --name container2 ubuntu /bin/bash
 ```sh
 sudo ovs-docker add-port ovs-br1 eth1 container1 --ipaddress=173.16.1.2/24
 sudo ovs-docker add-port ovs-br1 eth1 container2 --ipaddress=173.16.1.3/24
+```
+
+5. Turn the OpenFlow on
+
+```sh
+sudo ovs-vsctl set-controller br0 tcp:`docker-ip onos-1`:6653
 ```
 
 ### Let's build tunnels between OVSs
