@@ -20,7 +20,7 @@
     <url>http://onosproject.org</url>
 
     <properties>
-        <onos.version>1.8.0</onos.version>
+        <onos.version>1.10.0-SNAPSHOT</onos.version>
         <onos.app.name>home.parham.cherting</onos.app.name>
         <onos.app.origin>Amirkabir University of Technology</onos.app.origin>
     </properties>
