@@ -11,7 +11,7 @@
 						<xs:element name="provider"></xs:element>
 						<xs:element name="region"></xs:element>
 						<xs:element name="vm"></xs:element>
-					</xs:squence>
+					</xs:sequence>
 					<xs:attribute name="id" type="xs:string" />
 					<xs:attribute name="class" type="xs:string" />
 				</xs:complexType>
