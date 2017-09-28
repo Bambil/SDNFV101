@@ -104,7 +104,7 @@ ssh -p 8101 karaf@`docekr-ip onso3`
 | SSH      | 8101 |
 | HTTP     | 8181 |
 
-### Docker Chaining
+### Service chaining based on docker
 
 We want to create 3 containers that thier network chains together.
 
@@ -118,12 +118,12 @@ sudo docker netowrk create --driver=bridge bridge-name
 
 ```sh
 sudo docker run -ti --rm --name=c1 ubuntu
-sudo docker run -ti --rm --name=c3 --network=bridge-2 ubuntu
+sudo docker run -ti --rm --name=c3 --network=bridge ubuntu
 ```
 
 3. Create middlebox container
 
 ```sh
 sudo docker build --no-cache -t middlebox containers/middlebox
-sudo docker run -ti --rm --name=mc middlebox eth0
+sudo docker run -ti --rm --name=c2 middlebox eth0
 ```
