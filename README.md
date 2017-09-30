@@ -8,7 +8,7 @@
 2. Install OVS on each VM
 
 ```sh
-sudo apt install openvswitch-common
+sudo apt install openvswitch-switch
 sudo apt install ovn-common
 ```
 
